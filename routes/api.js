@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { db } = require("../models/workout.js");
+const mongoose = require("mongoose");
+const express = require("express");
 const Workout = require("../models/workout.js");
 
 router.post("/workouts", ({body}, res) => {
-Workout.create(body)
-.then(({_id}) => Workout.findOneAndUpdate({}, {$push: {workouts: _id}}, {new:true}))
+Workout.create({})
 .then(dbWorkout => {
     res.json(dbWorkout);
 })
@@ -26,7 +26,7 @@ router.get("/workouts", (req, res) => {
 
 
 router.get("/workouts/:id", (req,res) => {
-    const id = req.body.id;
+    const id = req.params.id;
     Workout.find({_id:id})
     .then(dbWorkout => {
         res.json(dbWorkout);
@@ -37,9 +37,12 @@ router.get("/workouts/:id", (req,res) => {
 })
 
 
-router.put("/workouts/:id", ({body},res) => {
-    Workout.create(body)
-    .then(({_id}) => Workout.findOneAndUpdate({}, {$push: {workouts: _id}}, {new:true}))
+router.put("/workouts/:id", ({params, body},res) => {
+
+    Workout.findOneAndUpdate(
+        {_id:params.id}, 
+        {$push: {exercises: body}}, 
+        {new:true})
     .then(dbWorkout => {
         res.json(dbWorkout);
     })
@@ -49,7 +52,16 @@ router.put("/workouts/:id", ({body},res) => {
 })
 
 
-//router.get("/workouts/range")
+router.get("/workouts/range", (req,res) => {
+    Workout.find({})
+    .limit(7)
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    })
+})
 
 module.exports = router;
 
