@@ -1,7 +1,9 @@
 # Workout Tracker
-An app to track workouts, built with MongoDB
 
-This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)
+![badge](https://img.shields.io/badge/license-MIT-orange)
+
+A simple workout tracking app built using Node.js, express.js, MongoDB and Mongoose.
 
 ## User Story
 
@@ -11,33 +13,83 @@ As a user, I want to be able to view create and track daily workouts. I want to 
 
 A consumer will reach their fitness goals more quickly when they track their workout progress.
 
-## Acceptance Criteria
+## Description
 
-When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
+This app allows users to keep track of their workouts by letting them create, add to and store their daily workouts. Users can choose between cardio or resistence training and input specific execise types within these categories. The stats page also offers a chart based summary of their weekly workouts.
 
-The user should be able to:
+## Table of Contents
 
-  * Add exercises to the most recent workout plan.
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing Guidelines](#contributing)
+* [License](#license)
+* [Questions](#questions)
 
-  * Add new exercises to a new workout plan.
+## Installation
 
-  * View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+This app makes use of the following technologies:
+1. Node.js
 
-  * View the total duration of each workout from the past seven workouts on the `stats` page.
+2. Express.js
 
-> **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
+3. MongoDB
 
-To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
+4. Mongoose
 
-  * [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
+[Click here to view the deployed app]()
 
-  * [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
+Alternatively, the repo can be downloaded and run locally. All the npm packages are provided in the package.json file and running npm i from the command line will install them all. After that just run npm run seed to seed the database and npm start to start app.
 
+## Usage
 
-## Submission on BCS
+When a user navigates to the app, they are given the option to create a new workout or continue with their last workout. 
 
-You are required to submit the following:
+![Demo](public/images/demo1.png)
 
-* The URL to the deployed application
+They are then asked to choose between cardio or resistance training before being presented with a form to input information about the type of exercise they chose. If they had chosen to continue a previous workout, the new exercise will be added to that workout. If they had chosen to start a new workout then a new workout will be created in the database. 
 
-* The URL to the GitHub repository
+![Demo2](public/images/demo2.png)
+
+When the user navigates to the stats page, they are presented with chart-based representation of their workouts including combined weights of multiple exercises from the past 7 workouts and total duration of each workout from the past 7 days.
+
+![Demo3](public/images/demo3.png)
+
+## Contributing
+
+ ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)
+
+ Link to Contributor's Covenant:[Contributors Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/) 
+
+ 
+## License
+
+![badge](https://img.shields.io/badge/license-MIT-orange)
+   
+Copyright (c) [2021] [Nida Ghuman]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. 
+
+## Questions
+
+The repo for this project can be found here: https://github.com/nidaqg/workout-tracker 
+
+Heroku link for deployed project can be found at: 
+
+For any questions or to report issues, email me at: nidaqg@gmail.com
+
