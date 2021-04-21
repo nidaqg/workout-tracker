@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require ("./routes");
+const router = require("./routes");
 const logger = require("morgan");
 
 const PORT = process.env.PORT || 3000;
@@ -14,15 +14,14 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
-    useFindAndModify: false
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 
 // routes
 app.use(router);
-//require("./routes/html-routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
